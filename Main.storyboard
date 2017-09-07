@@ -16,9 +16,6 @@
         <array key="Deadhead_Script_Italic.otf">
             <string>DeadheadScript-Italic</string>
         </array>
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
         <array key="Raleway-Regular.otf">
             <string>Raleway-Regular</string>
         </array>
@@ -55,7 +52,7 @@
                                     <constraint firstAttribute="height" constant="80" id="zGX-8m-5Qd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="30"/>
-                                <state key="normal" title="Next">
+                                <state key="normal" title="Get Started">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -68,7 +65,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GaD-ur-ezy">
-                                <rect key="frame" x="-19" y="25.5" width="413.5" height="116.5"/>
+                                <rect key="frame" x="76.5" y="34" width="222.5" height="100"/>
                                 <fontDescription key="fontDescription" name="DeadheadScript-Italic" family="Deadhead Script" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -136,7 +133,7 @@
             </objects>
             <point key="canvasLocation" x="-1252" y="-132"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Select Your City-->
         <scene sceneID="pdJ-Ao-25E">
             <objects>
                 <tableViewController id="SDg-on-brO" customClass="TableViewController" customModule="CabriolaApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -159,7 +156,14 @@
                             <outlet property="delegate" destination="SDg-on-brO" id="hZV-4Y-Ra2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Nc4-qG-4E5"/>
+                    <navigationItem key="navigationItem" title="Select Your City" id="Nc4-qG-4E5">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="jkZ-ra-aV2"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="AhW-Mh-Ees">
+                            <connections>
+                                <segue destination="OR2-XG-IPB" kind="show" id="2Ak-tp-uew"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="eq9-fP-cvd" kind="show" identifier="detailSegue" id="Te5-EQ-hRL"/>
                     </connections>
@@ -180,22 +184,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qsc-11-RCp">
-                                <rect key="frame" x="83" y="298" width="209" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Place Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-wX-pds">
-                                        <rect key="frame" x="0.0" y="0.0" width="209" height="71"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="209" id="n5y-Hp-y3y"/>
-                                            <constraint firstAttribute="height" constant="71" id="uPH-5i-p8A"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Anurati-Regular" family="Anurati" pointSize="35"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="CabriolaTrees.png" translatesAutoresizingMaskIntoConstraints="NO" id="PuO-2O-0AU">
                                 <rect key="frame" x="48" y="469" width="279" height="279"/>
                                 <constraints>
@@ -203,6 +191,22 @@
                                     <constraint firstAttribute="width" constant="279" id="iFg-O0-NEB"/>
                                 </constraints>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="b8r-P7-Xcs">
+                                <rect key="frame" x="93" y="313" width="189.5" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Place Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOh-wX-pds">
+                                        <rect key="frame" x="0.0" y="0.0" width="189.5" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="189.5" id="qF8-qm-IuG"/>
+                                            <constraint firstAttribute="height" constant="41" id="tjB-z7-xiH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Anurati-Regular" family="Anurati" pointSize="35"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.99427074193954468" green="0.36649852991104126" blue="0.39495891332626343" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -237,10 +241,27 @@
                                     <constraint firstAttribute="height" constant="667" id="WOf-jb-CtS"/>
                                 </constraints>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esT-U2-4oa">
+                                <rect key="frame" x="0.0" y="577" width="375" height="93"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.36470588240000001" blue="0.39607843139999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93" id="CSv-4r-GS7"/>
+                                    <constraint firstAttribute="width" constant="375" id="PQa-2u-tCA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="30"/>
+                                <state key="normal" title="Home">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="OR2-XG-IPB" kind="show" id="x0a-N9-j05"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="esT-U2-4oa" firstAttribute="centerX" secondItem="5Z0-kJ-MFd" secondAttribute="centerX" id="7ck-rh-YpE"/>
                             <constraint firstItem="tzX-H8-4Sb" firstAttribute="centerX" secondItem="5Z0-kJ-MFd" secondAttribute="centerX" id="BDG-fp-R3s"/>
+                            <constraint firstItem="esT-U2-4oa" firstAttribute="centerY" secondItem="5Z0-kJ-MFd" secondAttribute="centerY" constant="290" id="TxA-ZF-vS3"/>
                             <constraint firstItem="tzX-H8-4Sb" firstAttribute="centerY" secondItem="5Z0-kJ-MFd" secondAttribute="centerY" id="qnz-Ay-gV7"/>
                         </constraints>
                     </view>
@@ -279,7 +300,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CabriolaTrees.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lom-Ch-lJ5">
-                                <rect key="frame" x="48" y="374" width="279" height="279"/>
+                                <rect key="frame" x="48" y="394" width="279" height="279"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="279" id="Rdy-R8-Faa"/>
                                     <constraint firstAttribute="height" constant="279" id="bbk-B6-d70"/>
@@ -317,7 +338,7 @@
                         <constraints>
                             <constraint firstItem="Lom-Ch-lJ5" firstAttribute="centerX" secondItem="Q9t-rf-ZoJ" secondAttribute="centerX" id="1gE-3b-Rn3"/>
                             <constraint firstItem="ULX-Hi-zHj" firstAttribute="centerY" secondItem="Q9t-rf-ZoJ" secondAttribute="centerY" constant="50" id="AFo-y1-a7D"/>
-                            <constraint firstItem="Lom-Ch-lJ5" firstAttribute="centerY" secondItem="Q9t-rf-ZoJ" secondAttribute="centerY" constant="180" id="Oio-q7-4cB"/>
+                            <constraint firstItem="Lom-Ch-lJ5" firstAttribute="centerY" secondItem="Q9t-rf-ZoJ" secondAttribute="centerY" constant="200" id="Oio-q7-4cB"/>
                             <constraint firstItem="ULX-Hi-zHj" firstAttribute="centerX" secondItem="Q9t-rf-ZoJ" secondAttribute="centerX" id="tml-JS-XNh"/>
                         </constraints>
                     </view>
@@ -343,7 +364,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CabriolaTrees.png" translatesAutoresizingMaskIntoConstraints="NO" id="IdL-LP-smV">
-                                <rect key="frame" x="60" y="506" width="256" height="256"/>
+                                <rect key="frame" x="60" y="405.5" width="256" height="256"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="256" id="2Gg-0i-7vf"/>
                                     <constraint firstAttribute="height" constant="256" id="b1g-VQ-ZFk"/>
@@ -357,7 +378,7 @@
                                     <constraint firstAttribute="height" constant="80" id="AyX-fY-2D4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="30"/>
-                                <state key="normal" title="Signup">
+                                <state key="normal" title="Login">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -370,7 +391,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWF-oX-KRw">
-                                <rect key="frame" x="-32.5" y="26" width="441.5" height="116.5"/>
+                                <rect key="frame" x="69.5" y="33.5" width="237.5" height="100"/>
                                 <fontDescription key="fontDescription" name="DeadheadScript-Italic" family="Deadhead Script" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -378,7 +399,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99427074193954468" green="0.36649852991104126" blue="0.39495891332626343" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="IdL-LP-smV" firstAttribute="centerY" secondItem="TKn-kg-hfc" secondAttribute="centerY" constant="300" id="4dF-MT-tZg"/>
+                            <constraint firstItem="IdL-LP-smV" firstAttribute="centerY" secondItem="TKn-kg-hfc" secondAttribute="centerY" constant="200" id="4dF-MT-tZg"/>
                             <constraint firstItem="xWF-oX-KRw" firstAttribute="centerY" secondItem="TKn-kg-hfc" secondAttribute="centerY" constant="-250" id="63R-yN-i7o"/>
                             <constraint firstItem="UCO-zF-VS5" firstAttribute="centerY" secondItem="TKn-kg-hfc" secondAttribute="centerY" constant="100" id="9Sd-Zf-Z36"/>
                             <constraint firstItem="xWF-oX-KRw" firstAttribute="centerX" secondItem="TKn-kg-hfc" secondAttribute="centerX" id="FFu-Yd-DaS"/>
@@ -408,7 +429,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CabriolaTrees.png" translatesAutoresizingMaskIntoConstraints="NO" id="haz-WZ-xf6">
-                                <rect key="frame" x="60" y="506" width="256" height="256"/>
+                                <rect key="frame" x="60" y="455.5" width="256" height="256"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="256" id="4Ci-EF-3cD"/>
                                     <constraint firstAttribute="width" constant="256" id="qih-zu-I94"/>
@@ -434,8 +455,8 @@
                                     <segue destination="5NJ-Gx-PGC" kind="show" id="xov-LV-SyH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get Started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Fl-0n-Tka">
-                                <rect key="frame" x="-71" y="25.5" width="517" height="116.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Fl-0n-Tka">
+                                <rect key="frame" x="45.5" y="34" width="284" height="100"/>
                                 <fontDescription key="fontDescription" name="DeadheadScript-Italic" family="Deadhead Script" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -493,7 +514,7 @@
                             <constraint firstItem="1Fl-0n-Tka" firstAttribute="centerY" secondItem="ENX-71-Aap" secondAttribute="centerY" constant="-250" id="ayi-aT-hE7"/>
                             <constraint firstItem="EZU-l2-GE0" firstAttribute="centerX" secondItem="ENX-71-Aap" secondAttribute="centerX" id="dv1-mA-i65"/>
                             <constraint firstItem="1Fl-0n-Tka" firstAttribute="centerX" secondItem="ENX-71-Aap" secondAttribute="centerX" id="lCF-NT-L4h"/>
-                            <constraint firstItem="haz-WZ-xf6" firstAttribute="centerY" secondItem="ENX-71-Aap" secondAttribute="centerY" constant="300" id="xsg-Zb-eoL"/>
+                            <constraint firstItem="haz-WZ-xf6" firstAttribute="centerY" secondItem="ENX-71-Aap" secondAttribute="centerY" constant="250" id="xsg-Zb-eoL"/>
                             <constraint firstItem="se8-j1-nPk" firstAttribute="centerY" secondItem="ENX-71-Aap" secondAttribute="centerY" constant="-50" id="zdW-8O-Ixq"/>
                         </constraints>
                     </view>
@@ -543,7 +564,7 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ues-wo-uAm">
-                                <rect key="frame" x="8.5" y="25.5" width="359.5" height="116.5"/>
+                                <rect key="frame" x="88" y="34" width="199" height="100"/>
                                 <fontDescription key="fontDescription" name="DeadheadScript-Italic" family="Deadhead Script" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -712,8 +733,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" placeholder="YES" id="iuO-7c-zew"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gw3-rO-HDp">
@@ -721,8 +742,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" placeholder="YES" id="DdA-pa-2k5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0uC-zE-bHy">
@@ -730,8 +751,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" placeholder="YES" id="Xsl-0d-QD5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfc-eq-YMa">
@@ -739,8 +760,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" placeholder="YES" id="VCD-Bf-Pqc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MY-44-1oY">
@@ -750,8 +771,8 @@
                                     <constraint firstAttribute="width" constant="203" id="9Jz-en-bs3"/>
                                     <constraint firstAttribute="height" constant="60" id="Adp-E5-McG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="30"/>
-                                <state key="normal" title="Start Exploring">
+                                <fontDescription key="fontDescription" name="Raleway-Regular" family="Raleway" pointSize="20"/>
+                                <state key="normal" title="Next">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -763,12 +784,20 @@
                                     <segue destination="apv-GI-d74" kind="show" id="GsM-Sp-WYV"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CabriolaTrees.png" translatesAutoresizingMaskIntoConstraints="NO" id="775-LB-0Gj">
+                                <rect key="frame" x="48" y="394" width="279" height="279"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="279" id="GsQ-MA-dnE"/>
+                                    <constraint firstAttribute="width" constant="279" id="sWU-Mb-MKZ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99427074193954468" green="0.36649852991104126" blue="0.39495891332626343" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0MY-44-1oY" firstAttribute="centerX" secondItem="ajD-HI-he9" secondAttribute="centerX" id="2NX-m5-0bZ"/>
                             <constraint firstItem="0uC-zE-bHy" firstAttribute="top" secondItem="gw3-rO-HDp" secondAttribute="bottom" constant="8" symbolic="YES" id="4vj-Id-rOf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bfc-eq-YMa" secondAttribute="trailing" id="6PG-gq-t0d"/>
+                            <constraint firstItem="775-LB-0Gj" firstAttribute="centerX" secondItem="ajD-HI-he9" secondAttribute="centerX" id="7gv-gk-bSe"/>
                             <constraint firstItem="gw3-rO-HDp" firstAttribute="top" secondItem="K6Y-Q8-N1j" secondAttribute="bottom" constant="8" symbolic="YES" id="DU6-UZ-SX5"/>
                             <constraint firstItem="bfc-eq-YMa" firstAttribute="leading" secondItem="ajD-HI-he9" secondAttribute="leadingMargin" id="K6v-19-ytS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="K6Y-Q8-N1j" secondAttribute="trailing" id="Nqx-I1-bO6"/>
@@ -778,6 +807,7 @@
                             <constraint firstItem="0MY-44-1oY" firstAttribute="centerY" secondItem="ajD-HI-he9" secondAttribute="centerY" id="bcU-Op-7Pn"/>
                             <constraint firstItem="0uC-zE-bHy" firstAttribute="leading" secondItem="ajD-HI-he9" secondAttribute="leadingMargin" id="jVd-Do-fhn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0uC-zE-bHy" secondAttribute="trailing" id="mim-4Z-tMh"/>
+                            <constraint firstItem="775-LB-0Gj" firstAttribute="centerY" secondItem="ajD-HI-he9" secondAttribute="centerY" constant="200" id="q4s-Kf-856"/>
                             <constraint firstItem="bfc-eq-YMa" firstAttribute="top" secondItem="0uC-zE-bHy" secondAttribute="bottom" constant="8" symbolic="YES" id="t5j-JA-kLN"/>
                             <constraint firstItem="K6Y-Q8-N1j" firstAttribute="top" secondItem="E5x-xf-AiL" secondAttribute="bottom" constant="8" symbolic="YES" id="zyQ-NU-Sgx"/>
                         </constraints>
@@ -809,4 +839,7 @@
         <image name="Strokes2.png" width="1049" height="1080"/>
         <image name="diego-ph-221236.jpg" width="5184" height="3456"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="x0a-N9-j05"/>
+    </inferredMetricsTieBreakers>
 </document>
