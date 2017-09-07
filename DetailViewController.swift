@@ -27,9 +27,9 @@ var courseName2 = String()
     override func viewWillAppear(_ animated: Bool){
         studentNameLabel.text = studentName
         
-        courseNameLabel0.text = courseName0
-        courseNameLabel1.text = courseName1
-        courseNameLabel2.text = courseName2
+       // courseNameLabel0.text = courseName0
+        //courseNameLabel1.text = courseName1
+       // courseNameLabel2.text = courseName2
         
         
 
