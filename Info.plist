@@ -79,5 +79,20 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Cabriola</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Cabriola</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Cabriola</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Cabriola</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>googlechromes</string>
+        <string>comgooglemaps</string>
+    </array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Your location is required to show suggestions</string>
 </dict>
 </plist>

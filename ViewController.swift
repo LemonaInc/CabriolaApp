@@ -13,7 +13,7 @@ import FBSDKLoginKit
 import FacebookCore
 import UserNotifications
 import FBNotifications
-
+import JSSAlertView
 
 
 class ViewController: UIViewController {
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
    
         
         //adding login button to subview
-        view.addSubview(loginButton)
+       // view.addSubview(loginButton)
         //if the user is already logged in
         if (FBSDKAccessToken.current()) != nil{
             // Call the function to get facebook user data
@@ -37,6 +37,9 @@ class ViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        getStartedAlertView()
+    }
     
     
     
@@ -77,6 +80,18 @@ class ViewController: UIViewController {
         }
     }
    
+    
+    // When the map is loaded call this alert view
+    func getStartedAlertView() {
+        
+        var roxaWelcomeAlertView = JSSAlertView().show(self,
+         title: "Welcome!",
+         text: "Get Started by creating a profile!",
+         color: UIColorFromHex (0x2F302F, alpha: 1),
+         iconImage: #imageLiteral(resourceName: "exploreIcon"))
+        roxaWelcomeAlertView.setTextTheme(.light)
+    }
+    
     
     
 } // END

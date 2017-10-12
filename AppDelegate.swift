@@ -11,7 +11,8 @@ import UserNotifications
 import FacebookCore
 import FBNotifications
 import FBSDKLoginKit
-
+import GoogleMaps
+import GooglePlaces
 
 
 @UIApplicationMain
@@ -22,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // DID FINISH LAUNCHING
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
        
-      
+        GMSServices.provideAPIKey("AIzaSyCrsCAQLKKcxLabRO1wLmkxB_YotHr8K1E")
+        GMSPlacesClient.provideAPIKey("AIzaSyCrsCAQLKKcxLabRO1wLmkxB_YotHr8K1E")
         
         if launchOptions != nil {
             if let userInfo = launchOptions![UIApplicationLaunchOptionsKey.remoteNotification] as? NSDictionary {
@@ -57,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        // Google Maps and API Places Keys
         
         return true
         
@@ -71,11 +74,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         print("TOKEN \(deviceTokenString)")
         
-        
+
         return
-        
     
-        
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -87,17 +88,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     
-    @nonobjc func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    
+    // UPDATED
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         FBNotificationsManager.shared().presentPushCard(forRemoteNotificationPayload: userInfo, from: nil) { viewController, error in
+            
             if error != nil {
+            
                 completionHandler(.failed)
-            } 
-            else {
+            }
+                else {
+                
                 completionHandler(.newData)
             }
         }
-        return
-        
     }
     
     

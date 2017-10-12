@@ -21,13 +21,14 @@ var courseName2 = String()
     @IBOutlet var courseNameLabel1: UILabel!
     @IBOutlet var courseNameLabel2: UILabel!
 
+    let tableVC = TableViewController()
 
-    
     
     override func viewWillAppear(_ animated: Bool){
         studentNameLabel.text = studentName
+       
         
-       // courseNameLabel0.text = courseName0
+        // courseNameLabel0.text = courseName0
         //courseNameLabel1.text = courseName1
        // courseNameLabel2.text = courseName2
         
