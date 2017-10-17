@@ -29,9 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 typedef NS_ENUM(NSUInteger, AKFSkinType)
 {
-  AKFSkinTypeClassic = 0,
+  AKFSkinTypeClassic,
   AKFSkinTypeContemporary,
-  AKFSkinTypeTranslucent,
+  AKFSkinTypeTranslucent = 0
+    ,
 };
 
 /**

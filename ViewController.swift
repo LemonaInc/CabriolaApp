@@ -14,9 +14,12 @@ import FacebookCore
 import UserNotifications
 import FBNotifications
 import JSSAlertView
+import CoreLocation
 
 
 class ViewController: UIViewController {
+
+    let locationManager = CLLocationManager()
 
     // DECLARATIONS //
     var dict : [String : AnyObject]!
@@ -24,6 +27,7 @@ class ViewController: UIViewController {
     
     // VIEW DID LOAD FUNCTION
     override func viewDidLoad() {
+        // Facebook Login Button
         let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
         loginButton.center = view.center
    
@@ -50,6 +54,28 @@ class ViewController: UIViewController {
     }
     
     
+  // Prompt a location window when button is pressed
+  
+    @IBAction func allowLocationButton(_ sender: Any)
+    {
+        print("Location Requested")
+        
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        
+        if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways) {
+        
+            print ("Granted Always")
+        }
+        else if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse) {
+           
+            print("Granted When in use")
+        } else {
+            
+            print("granted None")
+        }
+        
+    }
     // LOGIN BUTTON CLICKED FUNCTION (FACEBOOK)
     @objc func loginButtonClicked() {
         let loginManager = LoginManager()

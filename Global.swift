@@ -11,13 +11,8 @@ import JSSAlertView
 
 class Global: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
     
-    
+    // Global Functions Defined Here
     func setLocationAlertViewGlobal() {
         
         var didSelectLocationAlert = JSSAlertView().show(self,
