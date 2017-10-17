@@ -86,8 +86,9 @@ class ViewController: UIViewController {
             
         } else {
             // Set the button to visible
-            locationAccessGrantedButton.isHidden = true
-         locationNotGrantedAlertView()
+        locationAccessGrantedButton.isHidden = true
+         //locationNotGrantedAlertView()
+        goToSettingsAlertView()
         
         }
         
@@ -136,8 +137,8 @@ class ViewController: UIViewController {
     func locationNotGrantedAlertView() {
         
         var locationNotGrantedAlert = JSSAlertView().show(self,
-         title: "Woah There!",
-         text: "Your location is used to determine your closest city",
+         title: "Location Access Denied",
+         text: "Go to settings to enable location access for Cabriola",
          color: UIColorFromHex (0xFB5F68, alpha: 1),
          iconImage: #imageLiteral(resourceName: "exploreIcon"))
         locationNotGrantedAlert.setTextTheme(.light)
@@ -148,13 +149,35 @@ class ViewController: UIViewController {
        
         var locationGrantedAlert = JSSAlertView().show(self,
        title: "Get Started",
-       text: "Click next to start finding places! <3",
+       text: "Click next to start finding places!",
        color: UIColorFromHex (0x32D4E1, alpha: 1),
         iconImage: #imageLiteral(resourceName: "exploreIcon"))
         locationGrantedAlert.setTextTheme(.light)
         
     }
     
+    // Alert view to go to location prefrences in settings
+    func goToSettingsAlertView() {
+        
+        let alertController = UIAlertController (title: "Location Access Denied", message: "Go To Settings to allow your location for Cabriola", preferredStyle: .alert)
+        
+        let settingsAction = UIAlertAction(title: "Go To Settings", style: .default) { (_) -> Void in
+            guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+                return
+            }
+            
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                    print("Settings opened: \(success)") // Prints true
+                })
+            }
+        }
+        alertController.addAction(settingsAction)
+        let cancelAction = UIAlertAction(title: "No Thanks", style: .default, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
     
     
 } // END
