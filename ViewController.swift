@@ -18,7 +18,9 @@ import CoreLocation
 
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var
+    locationAccessGrantedButton: UIButton!
+    
     let locationManager = CLLocationManager()
 
     // DECLARATIONS //
@@ -27,6 +29,9 @@ class ViewController: UIViewController {
     
     // VIEW DID LOAD FUNCTION
     override func viewDidLoad() {
+        
+        // Set the button to not visible when the view loads
+        locationAccessGrantedButton.isHidden = true
         // Facebook Login Button
         let loginButton = LoginButton(readPermissions: [ .publicProfile, .email, .userFriends ])
         loginButton.center = view.center
@@ -42,7 +47,7 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        getStartedAlertView()
+        
     }
     
     
@@ -55,27 +60,47 @@ class ViewController: UIViewController {
     
     
   // Prompt a location window when button is pressed
-  
     @IBAction func allowLocationButton(_ sender: Any)
     {
-        print("Location Requested")
-        
+
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         
         if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways) {
         
             print ("Granted Always")
+            // Set the button to visible
+            locationAccessGrantedButton.isHidden = false
+
+            locationAccessGrantedAlertView()
+
         }
         else if (CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedWhenInUse) {
            
             print("Granted When in use")
-        } else {
             
-            print("granted None")
+            // Set the button to visible
+            locationAccessGrantedButton.isHidden = false
+            
+            locationAccessGrantedAlertView()
+            
+        } else {
+            // Set the button to visible
+            locationAccessGrantedButton.isHidden = true
+         locationNotGrantedAlertView()
+        
         }
         
     }
+
+    // Next Button Invisible func
+
+    @IBAction func locationAccessGrantedButton(_ sender: Any)
+    {
+    }
+    
+    
+    
     // LOGIN BUTTON CLICKED FUNCTION (FACEBOOK)
     @objc func loginButtonClicked() {
         let loginManager = LoginManager()
@@ -107,15 +132,27 @@ class ViewController: UIViewController {
     }
    
     
-    // When the map is loaded call this alert view
-    func getStartedAlertView() {
+    // Location is not granted view
+    func locationNotGrantedAlertView() {
         
-        var roxaWelcomeAlertView = JSSAlertView().show(self,
-         title: "Welcome!",
-         text: "Get Started by creating a profile!",
-         color: UIColorFromHex (0x2F302F, alpha: 1),
+        var locationNotGrantedAlert = JSSAlertView().show(self,
+         title: "Woah There!",
+         text: "Your location is used to determine your closest city",
+         color: UIColorFromHex (0xFB5F68, alpha: 1),
          iconImage: #imageLiteral(resourceName: "exploreIcon"))
-        roxaWelcomeAlertView.setTextTheme(.light)
+        locationNotGrantedAlert.setTextTheme(.light)
+    }
+    
+    // Location is granted view
+    func locationAccessGrantedAlertView() {
+       
+        var locationGrantedAlert = JSSAlertView().show(self,
+       title: "Get Started",
+       text: "Click next to start finding places! <3",
+       color: UIColorFromHex (0x32D4E1, alpha: 1),
+        iconImage: #imageLiteral(resourceName: "exploreIcon"))
+        locationGrantedAlert.setTextTheme(.light)
+        
     }
     
     
