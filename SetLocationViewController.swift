@@ -19,6 +19,8 @@ class SetLocationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.isNavigationBarHidden = true
+
         
     }
     

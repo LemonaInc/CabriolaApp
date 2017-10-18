@@ -30,6 +30,10 @@ class ViewController: UIViewController {
     // VIEW DID LOAD FUNCTION
     override func viewDidLoad() {
         
+       // navigationController?.navigationBar.isUserInteractionEnabled = false
+       // navigationController?.navigationBar.tintColor = UIColor.black
+        
+        
         // Set the button to not visible when the view loads
         locationAccessGrantedButton.isHidden = true
         // Facebook Login Button
